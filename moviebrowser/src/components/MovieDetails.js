@@ -34,13 +34,7 @@ const MovieDetails = (props) => {
 };
 
 
-const Header = styled.div`
-  display: flex;
-  flex-direction: row;
-  background-color: black;
-  color: wheat;
-  padding: 10px;
-`;
+
 
 const MovieContainer = styled.div`
   display: flex;

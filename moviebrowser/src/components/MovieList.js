@@ -4,6 +4,7 @@ import styled from "styled-components";
 import MovieDetails from "./MovieDetails";
 import { BsSearch } from "react-icons/bs";
 import Singlepage from "./Singlepage";
+import DefaultMovie from "./DefaultMovie";
 
 export const API_KEY = "39d967ab";
 
@@ -88,6 +89,73 @@ const MovieList = () => {
     updateTimeoutId(timeout);
   };
 
+  let movie = [
+    {
+      date: "2 Nov 2022",
+      imdb: 9.6,
+      name: "Vikrant Rona ",
+      poster:
+        "https://imgshare.info/images/2022/07/28/c9eaec504f4337a22225465a71b65dcb.jpg",
+    },
+
+    {
+      date: "5 Jan 2022",
+      imdb: "7.5",
+      name: "Ek Villain Returns",
+      poster:
+        "https://imgshare.info/images/2022/07/29/7078be0724fdba1c52c4d1d9ae600fd8.jpg",
+    },
+    {
+      date: "11 Nov 2022",
+      imdb: "6.8",
+      name: "Good Luck Jerry  ",
+      poster:
+        "https://imgshare.info/images/2022/07/29/8a2b3fd0001eb859c6caae4e7fd1004c.jpg",
+    },
+    {
+      date: "10 June 2022",
+      imdb: "8.2",
+      name: "Rocketry &#8211; The Nambi Effect ",
+      poster:
+        "https://imgshare.info/images/2022/07/01/df9fbb422f3f6a4349aa3df3c90f4ec1.jpg",
+    },
+    {
+      date: "2 Nov 2022",
+      imdb: "8.1",
+      name: "Jug Jugg Jeeyo ",
+      poster:
+        "https://imgshare.info/images/2022/06/24/1bb334863d9b83a7d6d21ca120cfa283.jpg",
+    },
+    {
+      date: "8 Aug 2022",
+      imdb: "7.8",
+      name: "Judaa Hoke Bhi ",
+      poster:
+        "https://imgshare.info/images/2022/07/18/a9ec5b31f8ed7b012c99157adb5e88ff.jpg",
+    },
+    {
+      date: "4 Sept 2022",
+      imdb: "8.5",
+      name: "Jaadugar &#8211; Love Goals ",
+      poster:
+        "https://imgshare.info/images/2022/07/15/a1f296e890a61cc76a5b944bd9e71d7c.jpg",
+    },
+    {
+      date: "2 Oct 2022",
+      imdb: "8.9",
+      name: "Janhit Mein Jaari ",
+      poster:
+        "https://imgshare.info/images/2022/06/10/e627a170a066f0da201cb7ebab5037b3.jpg",
+    },
+    {
+      date: "3 july 2022",
+      imdb: "8.8",
+      name: "Mere Desh Ki Dharti ",
+      poster:
+        "https://imgshare.info/images/2022/07/09/b5081706b95d13c476c03fe79cb3b568.jpg",
+    },
+  ];
+
   return (
     <Container>
       <Header>
@@ -115,13 +183,21 @@ const MovieList = () => {
       <ListMovieContainer>
         {movieList?.length
           ? movieList?.map((movie, index) => (
-              <MovieDetails
+             <MovieDetails
                 key={index}
                 movie={movie}
                 onSelectMovie={onSelectMovie}
               />
             ))
-          : "Please search any movie!"}
+          : movie.map((el, i) => {
+              return (
+                <DefaultMovie
+                  key={i}
+                  movie={el}
+                  onSelectMovie={onSelectMovie}
+                />
+              );
+            })}
       </ListMovieContainer>
     </Container>
   );

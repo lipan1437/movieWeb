@@ -20,7 +20,9 @@ import styled from "styled-components";
 const MovieDetails = (props) => {
   const { Title, Year, Type, Poster, imdbID } = props.movie;
   return (
-    <MovieContainer>
+    <MovieContainer onClick={()=>{
+      props.onSelectMovie(imdbID)
+    }} >
       <CoverImage src={Poster} alt={Title} />
       <MovieName>{Title}</MovieName>
       <InfoColumn>
@@ -31,10 +33,7 @@ const MovieDetails = (props) => {
   );
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
+
 const Header = styled.div`
   display: flex;
   flex-direction: row;

@@ -183,7 +183,7 @@ const MovieList = () => {
       <ListMovieContainer>
         {movieList?.length
           ? movieList?.map((movie, index) => (
-             <MovieDetails
+              <MovieDetails
                 key={index}
                 movie={movie}
                 onSelectMovie={onSelectMovie}
